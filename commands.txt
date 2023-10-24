@@ -1,0 +1,76 @@
+—--------------- Git Advanced commands —-----------------------
+
+Searching commit message
+            git log –grep=”commit pattern”
+
+            type Q for exit.
+
+See all commits in one single line
+            git log  - - oneline
+
+See all commits of all branch
+            git log  - - all
+  
+Remove all changes from all files and do not want to save changes
+            git checkout  .
+    
+ Merge all the commits into a single commit.
+i) git rebase -i HEAD~3 // 
+
+3 is the number of commits to merge into one single commit.
+You need to squash 2 commits in case of this example.
+
+ii) Press i , and choose squash
+
+iii) Press ESC button and type :wq
+
+iv) Press i , and edit commit message and then press ESC
+
+v) type :wq!  , for saving 
+
+
+Discard both commit and changing files content permanently ( UNDO changes )
+git reset - - hard HEAD~1  
+
+
+Discard commit only ( UNDO changes )
+git reset - - soft HEAD~1  
+
+If you delete some files accidentally in current directory then restore back before push
+git restore .   // . means current directory ,  store all files in current directory
+
+
+Merging specific commit into your current branch ( Apply the changes introduced by some existing commits )
+i) git cherry-pick <commit id>
+ii) solve merge conflict
+iii) git add .
+iv) git cherry-pick - - continue
+v) Press i , then ESC , then :wq!
+
+
+If you have pushed an unwanted commit from your local and then coming back to your previous commit then use the below command. Same as reset command but revert is safe and doesn't remove  unwanted commit. And maintain revert history
+
+git revert <commit id> // same as reset
+
+i) rename the commit message the save with :wq!
+ii) git push origin <branch_name>
+
+If you want to take pull of your branch changes over the master
+i) Go to master branch
+ii) git pull origin <your branch name> --no-ff
+
+To see all the changes using git blame
+Git blame <your directory path> -L <from line> <to line>
+git blame ./server/controllers/miningController.js -L 203,228
+Go to specific head pointer ( for removing your code )
+
+                       git reset HEAD <commit id>
+
+If you want to unstage all the file from stages
+git reset
+
+If you want to unstage for particular file from stages
+git reset <filename>
+
+kill -KILL 2520 // kill process
+lsof -i :3004  // see the process on define port , 3004 is port
