@@ -72,5 +72,14 @@ git reset
 If you want to unstage for particular file from stages
 git reset <filename>
 
+If you forget to take pull and want to resolve conflicts
+then delete your local branch and take pull again
+
+I) git branch -d local_branch_name
+ii) git fetch origin remote_branch_name
+iii) git pull origin other_branch
+then resolve conflicts. and dont push force
+
+
 kill -KILL 2520 // kill process
 lsof -i :3004  // see the process on define port , 3004 is port
